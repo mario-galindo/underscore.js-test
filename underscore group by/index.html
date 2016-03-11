@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Group By</title>
+
+    <!--CDN UNDERCORSE-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore.js"></script>
+
+    <style>
+      th {cursor:pointer;}
+    </style>
+
+  </head>
+  <body>
+<!--
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th onclick='groupCol(this)'>Age</th>
+            <th onclick='groupCol(this)'>City</th>
+            <th onclick='groupCol(this)'>Gender</th>
+          </tr>
+        </thead>
+          <tbody>
+            <tr>
+              <td>Bob Smith</td>
+              <td>42</td>
+              <td>Atlanta</td>
+              <td>Male</td>
+            </tr>
+            <tr>
+              <td>Trey Jones</td>
+              <td>26</td>
+              <td>Dublin</td>
+              <td>Male</td>
+            </tr>
+            <tr>
+              <td>Phil Lee</td>
+              <td>47</td>
+              <td>Dublin</td>
+              <td>Male</td>
+            </tr>
+            <tr>
+              <td>Matt Taylor</td>
+              <td>32</td>
+              <td>San  Diego</td>
+              <td>Male</td>
+            </tr>
+            <tr>
+              <td>Susan James</td>
+              <td>34</td>
+              <td>Atlanta</td>
+              <td>Female</td>
+            </tr>
+            <tr>
+              <td>Cinthya Peters</td>
+              <td>24</td>
+              <td>San Diego</td>
+              <td>Female</td>
+            </tr>
+          </tbody>
+      </table>-->
+
+      <script>
+      /*  "use strict";
+
+        function groupCol(thElement){
+
+          //Calculate the node index from de cell index of the clicked
+          var columnNodeIndex = (thElement.cellIndex * 2) + 1;
+          var groupByFuncIndex = thElement.cellIndex -1;
+          var rows = getAllRows();
+
+          //array of group by functions, one for each table column
+          var groupByValuesFuncs = getGroupByValueFuncs();
+
+          //add group by code here...
+          var groupedRows = _.groupBy(rows,
+            function(row,index,originalRows){
+              return row.childNodes[columnNodeIndex].textContent
+            });
+
+          //retrieve the group keys and sort them
+          var groups = _.keys(groupedRows);
+          var sortedGroups = _.sortBy(groups);
+
+          //Create the new grouped and sorted tbody
+          var tbodyNodeNew = document.createElement("tbody");
+          _.each(sortedGroups,function(key){
+
+            //Colum to display the group header
+            var tdGroup = document.createElement("td");
+            tdGroup.setAttribute("colspan",4);
+            tdGroup.setAttribute("style","font-weight:bold;");
+            tdGroup.textContent = key;
+
+            //row for the group header
+            var trGroup = document.createElement("tr");
+            trGroup.setAttribute("data-group-header","true");
+            trGroup.appendChild(tdGroup);
+
+            //add the group header row to the body
+            tbodyNodeNew.appendChild(trGroup);
+
+            //add the data rows for the group
+            _.each(groupedRows[key],function(row){
+                tbodyNodeNew.appendChild(row);
+            });
+
+
+          });
+
+            //replace the original tbody with a new grouped and sorted tbody
+            var tableNode = getFirstNodeByTagName("Table");
+            var tbodyNodeOld = getFirstNodeByTagName("tbody");
+            tableNode.replaceChild(tbodyNodeNew,tbodyNodeOld);
+        }*/
+
+        var data = [{
+          "name": "jim",
+              "color": "blue",
+              "age": "22"
+          }, {
+          "name": "Sam",
+              "color": "blue",
+              "age": "33"
+          }, {
+          "name": "eddie",
+              "color": "green",
+              "age": "77"
+          },
+          {
+          "name": "Dheeraj",
+              "color": "blue",
+              "age": "25"
+          },
+          {
+          "name": "Suraj",
+              "color": "green",
+              "age": "25"
+          }
+        ];
+
+        var result=_.groupBy(data,"color");
+        console.log(result);
+
+      </script>
+
+  </body>
+</html>
